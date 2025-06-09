@@ -1,23 +1,56 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+/* Variáveis de cores */
+/* CSS HEX */
+:root {
+    --rich-black: #000814ff;
+    --oxford-blue: #001d3dff;
+    --yale-blue: #003566ff;
+    --mikado-yellow: #ffc300ff;
+    --gold: #ffd60aff;
 }
 
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--rich-black); /* Usando a variável de cor */
+    color: var(--gold); /* Cor de texto padrão */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
 header {
-    background: #007BFF;
+    background: var(--yale-blue);
     color: white;
-    padding: 1rem 0;
+    padding: 2rem 0;
     text-align: center;
 }
 
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Navegação */
 nav ul {
     list-style: none;
-    background: #333;
-    padding: 0;
+    background: var(--oxford-blue);
     display: flex;
     justify-content: center;
+    padding: 1rem 0;
 }
 
 nav ul li {
@@ -27,16 +60,76 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold; /* Adicionado para destacar os links */
+    transition: color 0.3s ease; /* Efeito de transição */
 }
 
-section {
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
+nav ul li a:hover {
+    color: var(--mikado-yellow); /* Cor de destaque ao passar o mouse */
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #333;
+/* Seções */
+.section {
+    padding: 3rem 0;
+    background: white;
+    color: var(--rich-black);
+}
+
+.section:nth-child(even) {
+    background: var(--oxford-blue);
     color: white;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: var(--yale-blue);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 300px;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th, table td {
+    padding: 0.8rem;
+    text-align: left;
+    border: 1px solid var(--yale-blue);
+}
+
+table th {
+    background: var(--yale-blue);
+    color: white;
+}
+
+/* Rodapé */
+footer {
+    background: var(--oxford-blue);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
