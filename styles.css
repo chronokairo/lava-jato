@@ -1,14 +1,20 @@
-/* Variáveis de cores */
-/* CSS HEX */
+/* =========================
+   PALETA DE CORES PROFISSIONAL (AZUL & DOURADO)
+   ========================= */
 :root {
-    --rich-black: #000814ff;
-    --oxford-blue: #001d3dff;
-    --yale-blue: #003566ff;
-    --mikado-yellow: #ffc300ff;
-    --gold: #ffd60aff;
+    --dark-blue: #1a2238;
+    --mid-blue: #283655;
+    --gold: #ffd700;
+    --white: #fff;
+    --light-gray: #f5f6fa;
+    --shadow: 0 4px 16px rgba(40,54,85,0.10);
+    --radius: 14px;
+    --transition: 0.3s cubic-bezier(.4,0,.2,1);
 }
 
-/* Reset básico */
+/* ================
+   RESET E BASE
+   ================ */
 * {
     margin: 0;
     padding: 0;
@@ -16,75 +22,149 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: var(--rich-black); /* Usando a variável de cor */
-    color: var(--gold); /* Cor de texto padrão */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+    background-color: var(--light-gray);
+    color: var(--white);
+    min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 .container {
-    width: 90%;
+    width: 92%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Cabeçalho */
+/* =========================
+   CABEÇALHO
+   ========================= */
 header {
-    background: var(--yale-blue);
-    color: white;
-    padding: 2rem 0;
+    background: linear-gradient(90deg, var(--dark-blue) 50%, var(--mid-blue) 100%);
+    color: var(--white);
+    padding: 2.5rem 0 1.5rem 0;
     text-align: center;
+    box-shadow: var(--shadow);
+    /* Apenas borda inferior levemente arredondada */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+header h1,
+header p {
+    color: var(--white);
+    text-shadow: 0 2px 8px rgba(40,54,85,0.18);
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    opacity: 0.95;
 }
 
-/* Navegação */
+/* =========================
+   NAVEGAÇÃO
+   ========================= */
+nav {
+    background: var(--mid-blue);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 nav ul {
     list-style: none;
-    background: var(--oxford-blue);
     display: flex;
     justify-content: center;
-    padding: 1rem 0;
-}
-
-nav ul li {
-    margin: 0 15px;
+    gap: 2rem;
+    padding: 1.2rem 0;
 }
 
 nav ul li a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
-    font-weight: bold; /* Adicionado para destacar os links */
-    transition: color 0.3s ease; /* Efeito de transição */
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius);
+    transition: 
+        background var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+    display: block;
+    border: 2px solid transparent;
 }
 
-nav ul li a:hover {
-    color: var(--mikado-yellow); /* Cor de destaque ao passar o mouse */
+nav ul li a:hover,
+nav ul li a.active {
+    background: var(--gold);
+    color: var(--dark-blue);
+    box-shadow: 0 2px 12px rgba(255,215,0,0.18);
+    border: 2px solid var(--dark-blue);
 }
 
-/* Seções */
+/* =========================
+   SEÇÕES
+   ========================= */
 .section {
-    padding: 3rem 0;
-    background: white;
-    color: var(--rich-black);
+    padding: 3.5rem 0 3rem 0;
+    background: var(--dark-blue);
+    color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2.5rem;
+    transition: box-shadow var(--transition);
+    position: relative;
 }
 
-.section:nth-child(even) {
-    background: var(--oxford-blue);
-    color: white;
+.section:not(:first-of-type) {
+    margin-top: 2.5rem;
+}
+
+.section:nth-of-type(even) {
+    background: var(--mid-blue);
+    color: var(--white);
+    box-shadow: 0 4px 24px rgba(40,54,85,0.10);
 }
 
 .section h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-shadow: 0 2px 8px rgba(255,215,0,0.10);
 }
 
+.section:nth-of-type(even) h2 {
+    color: var(--white);
+    text-shadow: 0 2px 8px rgba(40,54,85,0.18);
+}
+
+/* =========================
+   IMAGENS PROFISSIONAIS
+   ========================= */
+.section-image {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 2rem auto 2.5rem auto;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 24px rgba(40,54,85,0.13);
+    object-fit: cover;
+    aspect-ratio: 16/7;
+}
+
+/* =========================
+   CARDS DE SERVIÇOS
+   ========================= */
 .cards {
     display: flex;
     gap: 2rem;
@@ -93,43 +173,150 @@ nav ul li a:hover {
 }
 
 .card {
-    background: var(--yale-blue);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
+    background: var(--mid-blue);
+    color: var(--white);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    max-width: 300px;
+    box-shadow: var(--shadow);
+    flex: 1 1 260px;
+    max-width: 320px;
+    min-width: 220px;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 8px rgba(40,54,85,0.10));
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(40,54,85,0.18);
+    background: linear-gradient(135deg, var(--gold) 70%, var(--mid-blue) 100%);
+    color: var(--dark-blue);
 }
 
 .card h3 {
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 2px 8px rgba(40,54,85,0.18);
 }
 
-/* Tabela */
+.section:nth-of-type(even) .card {
+    background: var(--dark-blue);
+    color: var(--white);
+}
+
+.section:nth-of-type(even) .card h3 {
+    color: var(--white);
+}
+
+/* =========================
+   TABELA DE PREÇOS
+   ========================= */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    background: var(--mid-blue);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    color: var(--white);
 }
 
 table th, table td {
-    padding: 0.8rem;
+    padding: 1rem 0.8rem;
     text-align: left;
-    border: 1px solid var(--yale-blue);
+    border-bottom: 1px solid #eee;
 }
 
 table th {
-    background: var(--yale-blue);
-    color: white;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(40,54,85,0.18);
 }
 
-/* Rodapé */
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* =========================
+   RODAPÉ
+   ========================= */
 footer {
-    background: var(--oxford-blue);
-    color: white;
+    background: var(--dark-blue);
+    color: var(--white);
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.2rem 0 1rem 0;
     margin-top: 2rem;
+    font-size: 1rem;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    box-shadow: var(--shadow);
+    opacity: 0.97;
+    text-shadow: 0 2px 8px rgba(40,54,85,0.18);
+}
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width: 900px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        max-width: 90%;
+    }
+    .container {
+        width: 98%;
+    }
+    .section-image {
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .section {
+        padding: 2rem 0.5rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .card {
+        padding: 1.2rem 0.7rem;
+    }
+    table th, table td {
+        padding: 0.7rem 0.4rem;
+    }
+}
+
+/* =========================
+   SEPARADORES VISUAIS
+   ========================= */
+.section:not(:last-of-type)::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--gold), var(--mid-blue));
+    border-radius: 3px;
+    margin: 2.5rem auto 0 auto;
+    opacity: 0.7;
 }
